@@ -4,7 +4,7 @@ const db = require('../config/database')
 const Activity = db.define(
   'Activity',
   {
-    activity_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,

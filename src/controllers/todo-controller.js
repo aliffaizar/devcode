@@ -11,14 +11,7 @@ const getAllTodos = async (req, res) => {
     res.json({
       status: 'Success',
       message: 'Success',
-      data: allTodos.map((todo) => ({
-        id: todo.todo_id,
-        title: todo.title,
-        priority: todo.priority,
-        is_active: todo.is_active,
-        created_at: todo.created_at,
-        updated_at: todo.updated_at,
-      })),
+      data: allTodos,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })
@@ -38,13 +31,7 @@ const getTodo = async (req, res) => {
     res.json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: oneTodo.todo_id,
-        title: oneTodo.title,
-        priority: oneTodo.priority,
-        created_at: oneTodo.created_at,
-        updated_at: oneTodo.updated_at,
-      },
+      data: oneTodo,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })
@@ -71,15 +58,7 @@ const createTodo = async (req, res) => {
     res.status(201).json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: newTodo.todo_id,
-        title: newTodo.title,
-        activity_group_id: newTodo.activity_group_id,
-        priority: newTodo.priority,
-        is_active: newTodo.is_active,
-        created_at: newTodo.created_at,
-        updated_at: newTodo.updated_at,
-      },
+      data: newTodo,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })
@@ -97,18 +76,11 @@ const updateTodo = async (req, res) => {
         data: {},
       })
     }
-    await todoToUpdate.update(req.body)
+    const newTodo = await todoToUpdate.update(req.body)
     res.status(200).json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: todoToUpdate.todo_id,
-        activity_group_id: todoToUpdate.activity_group_id,
-        title: todoToUpdate.title,
-        priority: todoToUpdate.priority,
-        created_at: todoToUpdate.created_at,
-        updated_at: todoToUpdate.updated_at,
-      },
+      data: newTodo,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })

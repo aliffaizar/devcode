@@ -27,13 +27,7 @@ const getActivity = async (req, res) => {
     res.json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: oneActivity.activity_id,
-        title: oneActivity.title,
-        email: oneActivity.email,
-        created_at: oneActivity.created_at,
-        updated_at: oneActivity.updated_at,
-      },
+      data: oneActivity,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })
@@ -60,13 +54,7 @@ const createActivity = async (req, res) => {
     res.status(201).json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: newActivity.activity_id,
-        title: newActivity.title,
-        email: newActivity.email,
-        created_at: newActivity.created_at,
-        updated_at: newActivity.updated_at,
-      },
+      data: newActivity,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })
@@ -88,13 +76,7 @@ const updateActivity = async (req, res) => {
     res.json({
       status: 'Success',
       message: 'Success',
-      data: {
-        id: updatedActivity.activity_id,
-        title: updatedActivity.title,
-        email: updatedActivity.email,
-        created_at: updatedActivity.created_at,
-        updated_at: updatedActivity.updated_at,
-      },
+      data: updatedActivity,
     })
   } catch (err) {
     res.status(500).json({ message: err.message })

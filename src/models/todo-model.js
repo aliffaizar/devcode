@@ -4,7 +4,7 @@ const db = require('../config/database')
 const Todo = db.define(
   'Todo',
   {
-    todo_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
